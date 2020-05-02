@@ -26,5 +26,6 @@ This project is an effort for having a common database schema for other database
 ## Related project 
 
 #### Migrator.NET / FluentMigration
-
 https://github.com/fluentmigrator/fluentmigrator
+
+Fluent Migrator is a migration framework for .NET. It's used to control the changes realized in the database schemas. It allows to keep on single base code for all supported databases
