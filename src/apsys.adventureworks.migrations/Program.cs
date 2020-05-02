@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace apsys.adventureworks.migrations
 {
-    public class Program
+    public static class Program
     {
         static int Main(string[] args)
         {
