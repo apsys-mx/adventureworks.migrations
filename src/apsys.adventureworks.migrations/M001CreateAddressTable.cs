@@ -1,7 +1,4 @@
 ﻿using FluentMigrator;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace apsys.adventureworks.migrations
 {
@@ -11,7 +8,7 @@ namespace apsys.adventureworks.migrations
     {
         public override void Down()
         {
-            throw new NotImplementedException();
+            Delete.Column("Address");
         }
 
         public override void Up()
