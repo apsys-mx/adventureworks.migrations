@@ -8,7 +8,7 @@ namespace apsys.adventureworks.migrations
     {
         public override void Down()
         {
-            Delete.Column("Address");
+            Delete.Table("Address");
         }
 
         public override void Up()

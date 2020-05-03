@@ -19,7 +19,7 @@ namespace apsys.adventureworks.migrations
         {
             Create.Table("ProductCategory")
                 .WithColumn("ProductCategoryID").AsInt32().PrimaryKey()
-                .WithColumn("ParentProductCategoryID").AsInt32().ForeignKey("ProductCategory", "ProductCategoryID")
+                .WithColumn("ParentProductCategoryID").AsInt32().ForeignKey("FK_ProductCategory_TO_ProductCategory", "ProductCategory", "ProductCategoryID")
                 .WithColumn("Name").AsString(50).NotNullable()
                 .WithColumn("ModifiedDate").AsDateTime().NotNullable();
 
@@ -35,8 +35,8 @@ namespace apsys.adventureworks.migrations
                 .WithColumn("ModifiedDate").AsDateTime().NotNullable();
 
             Create.Table("ProductModelProductDescription")
-                .WithColumn("ProductModelID").AsInt32().ForeignKey("ProductModel", "ProductModelID")
-                .WithColumn("ProductDescriptionID").AsInt32().ForeignKey("ProductDescription", "ProductDescriptionID")
+                .WithColumn("ProductModelID").AsInt32().ForeignKey("FK_PMPD_To_ProductModel", "ProductModel", "ProductModelID")
+                .WithColumn("ProductDescriptionID").AsInt32().ForeignKey("FK_PMPD_To_ProductDesciption", "ProductDescription", "ProductDescriptionID")
                 .WithColumn("Culture").AsString(6).NotNullable();
             Create.PrimaryKey("PK_ProductModelProductDescription")
                 .OnTable("ProductModelProductDescription")
@@ -51,8 +51,8 @@ namespace apsys.adventureworks.migrations
                 .WithColumn("ListPrice").AsDecimal().NotNullable()
                 .WithColumn("Size").AsString(5).Nullable()
                 .WithColumn("Weight").AsDecimal(8,2).Nullable()
-                .WithColumn("ProductCategoryID").AsInt32().Nullable().ForeignKey("FK_Product_ProductCategory_ProductCategoryID", "ProductCategory", "ProductCategoryID")
-                .WithColumn("ProductModelID").AsInt32().Nullable().ForeignKey("FK_Product_ProductModel_ProductModelID", "ProductModel", "ProductModelID")
+                .WithColumn("ProductCategoryID").AsInt32().Nullable().ForeignKey("FK_To_ProductCategory", "ProductCategory", "ProductCategoryID")
+                .WithColumn("ProductModelID").AsInt32().Nullable().ForeignKey("FK_To_ProductModel", "ProductModel", "ProductModelID")
                 .WithColumn("SellStartDate").AsDateTime().NotNullable()
                 .WithColumn("SellEndDate").AsDateTime().Nullable()
                 .WithColumn("DiscontinuedDate").AsDateTime().Nullable()
